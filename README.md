@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+# Testing React components with Vitest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Based on [Robin Weruch's blog post](https://www.robinwieruch.de/vitest-react-testing-library/)
 
-Currently, two official plugins are available:
+Example of testing React-based applications with [Vitest](https://vitest.dev/) and [`testing-library`](https://testing-library.com/docs/react-testing-library/setup/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project is bootstrapped with `create-vite-app`.
 
-## Expanding the ESLint configuration
+## Dependencies
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```bash
+vitest # duh!!
+@vitejs/plugin-react # Enable React in Vite
+jsdom # DOM manipulation for Vitest
+@testing-library/jest-dom # to manipulate DOM using testing libraries, yes it has *jest* on it
+@testing-library/react # Enable React in testing framework
+@testing-library/user-event # Simulate user's events like click
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Important Files
+
+- `vitest.config.ts` -> Configuration file for running React in Vitest
+- `test-setup.ts` -> Setup file
+- `App.spec.tsx` -> The actual test file
